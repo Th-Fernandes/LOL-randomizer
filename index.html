@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>LOL Randomizer</title>
+</head>
+<body>
+    <main class="main">
+        <div class="champions-data">
+           
+        </div>
+
+        <div class="submit-area">
+            <p id="timer"></p>
+            <button onclick=" " class="sort-champion">gerar campeão</button>
+        </div>
+    </main>
+
+    <script type="module">
+        import { configs } from './index.js'
+
+        const button = document.querySelector('.sort-champion');
+
+        button.addEventListener('click', () => {
+            //mostra na tela o nome e a imagem do campeão
+            configs.printWithAnimation()
+            // desabilita o botão para n sortear novos campeoes
+            button.disabled = true;
+            button.classList.add("disabled")
+            // faz a contagem regressiva para a reutilização do botão
+            configs.buttonCooldown()
+            // faz com que só seja possível gerar um novo campeão a cada 2 minutos
+            setTimeout(() => {
+                button.disabled = false;
+                button.classList.remove("disabled");
+
+            }, 120 * 1000)
+        })
+
+        button.addEventListener('mouseover', () => {console.log('foi')})
+    </script>
+</body>
+</html>

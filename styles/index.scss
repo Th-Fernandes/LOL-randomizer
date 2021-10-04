@@ -1,0 +1,112 @@
+//colors
+$dark-grey: #212121;
+$violet: #6200ee;
+$dark-violet:#3700b3 ;
+
+$white: #f0f0f0;
+
+/* === GLOBAL === */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    color: $white;
+
+html {
+    font-size: 62.5%;
+}
+
+/* === MAIN === */
+body {
+    width: 100%;
+    height: 100vh;
+    background: rgba($color: $dark-grey, $alpha: .95);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+
+        width: min(60rem, 95%);
+        max-width: 144rem;
+        height: 40rem;
+        padding: 3rem;
+        border-radius: 16px;
+        margin: auto;
+        background-color: $dark-grey;
+        text-align: center;
+        }
+
+        .champions-data {
+            width: 100%;
+
+            > h1 {
+                font-size: 3.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            > img {
+                width: 15rem;
+                height: 15rem;
+                border: 12.5px solid $violet;
+                border-radius: 8px;
+            }
+        }
+
+
+       .submit-area {
+        align-self: flex-end;
+        width: 100%;
+
+            #timer {
+                font-size: 3.2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+
+            button.sort-champion {
+                display: block;
+                width: 15rem;
+                padding: 1rem;
+                margin: 0 auto;
+                border: none;
+                border-radius: 8px;
+                background-color: $violet;
+                color: $white;
+                font-size: 1.2rem;
+                transition: .5s all;
+
+                &:hover {
+                    background-color: $dark-violet;
+                    border: 1px solid $white;
+                    cursor: pointer;
+                }
+            }
+
+            button.sort-champion.disabled {
+                cursor: not-allowed;
+                background: gray;
+            }
+       }
+
+    }
+}
+
+@media (max-width: 425px) {
+    body {
+        main.main {
+            width: 100%;
+            height: 100vh;
+
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

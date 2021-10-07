@@ -1,9 +1,15 @@
-import { championsList } from "./data/champions.js";
+import { championsList} from "./data/champions.js";
 
 const configs = {
     //sorteia um campeao aleatorio
     sortChamp() {
-        return championsList[Math.round(Math.random() * championsList.length)]
+        const result = championsList[Math.round(Math.random() * championsList.length)]
+
+        while(result == championsList.length) {
+            result = championsList[Math.round(Math.random() * championsList.length)]
+        }
+
+        return result
     },
 
     printResults() {
@@ -50,6 +56,16 @@ const configs = {
     }
 }
 
-export { configs }
+const mainMenu = {
+    hide() {
+        document.querySelector('.choose-lol').addEventListener('click', () => {
+            document.querySelector('.main-menu').style.transition = "1.5s all"
+            document.querySelector('.main-menu').style.opacity = 0;
+            document.querySelector('.main-menu').style.visibility = "hidden"
+        })
+    }
+}
+
+export { configs, mainMenu }
 
 //console.log(sortChamp())

@@ -13,6 +13,9 @@
 :root html {
   font-size: 62.5%;
 }
+:root html button {
+  cursor: pointer;
+}
 :root body {
   width: 100%;
   height: 100vh;
@@ -22,8 +25,6 @@
   align-items: center;
 }
 :root body main {
-  display: flex;
-  flex-wrap: wrap;
   width: min(60rem, 95%);
   max-width: 144rem;
   height: 40rem;
@@ -33,29 +34,63 @@
   background-color: #212121;
   text-align: center;
 }
-:root body .champions-data {
+:root body section.main-menu {
+  width: 100%;
+  height: 100%;
+  background-color: #212121;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root body section.main-menu .modal {
+  width: min(60rem, 95%);
+}
+:root body section.main-menu .modal > h1 {
+  font-size: 3.2rem;
+}
+:root body section.main-menu .modal .options > button {
+  display: block;
+  width: 15rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: none;
+  border-radius: 8px;
+  background-color: #6200ee;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  transition: 0.5s all;
+}
+:root body section.champion-interface {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+:root body section.champion-interface .champions-data {
   width: 100%;
 }
-:root body .champions-data > h1 {
+:root body section.champion-interface .champions-data > h1 {
   font-size: 3.2rem;
   margin-bottom: 1.5rem;
 }
-:root body .champions-data > img {
+:root body section.champion-interface .champions-data > img {
   width: 15rem;
   height: 15rem;
   border: 12.5px solid #6200ee;
   border-radius: 8px;
 }
-:root body .submit-area {
+:root body section.champion-interface .submit-area {
   align-self: flex-end;
   width: 100%;
 }
-:root body .submit-area #timer {
+:root body section.champion-interface .submit-area #timer {
   font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
-:root body .submit-area button.sort-champion {
+:root body section.champion-interface .submit-area button.sort-champion {
   display: block;
   width: 15rem;
   padding: 1rem;
@@ -67,12 +102,12 @@
   font-size: 1.2rem;
   transition: 0.5s all;
 }
-:root body .submit-area button.sort-champion:hover {
+:root body section.champion-interface .submit-area button.sort-champion:hover {
   background-color: #3700b3;
   border: 1px solid #f0f0f0;
   cursor: pointer;
 }
-:root body .submit-area button.sort-champion.disabled {
+:root body section.champion-interface .submit-area button.sort-champion.disabled {
   cursor: not-allowed;
   background: gray;
 }
@@ -81,8 +116,19 @@
   body main.main {
     width: 100%;
     height: 100vh;
+    padding: 0;
     justify-content: center;
     align-items: center;
+  }
+  body main.main section.main-menu .modal > h1 {
+    font-size: 2.2rem;
+  }
+  body main.main section.champion-interface {
+    justify-content: center;
+    align-items: center;
+  }
+  body main.main section.champion-interface .submit-area {
+    align-self: auto;
   }
 }
 

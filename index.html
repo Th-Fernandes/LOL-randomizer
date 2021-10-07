@@ -14,18 +14,34 @@
 </head>
 <body>
     <main class="main">
-        <div class="champions-data">
-           
-        </div>
+        <!--MAIN MENU MODAL-->
+        <section class="main-menu">
+            <div class="modal">
+                <h1>RIOT RANDOMIZER</h1>
 
-        <div class="submit-area">
-            <p id="timer"></p>
-            <button onclick=" " class="sort-champion">gerar campeão</button>
-        </div>
+            <div class="options">
+                <button  class="choose-lol"> sortear campeão </button>
+                <button> sortear agente </button>
+            </div>
+            </div>
+        </section>
+        <!-- SESSAO GERAR CAMPEAO-->
+        <section class="champion-interface">
+            <div class="champions-data">
+           
+            </div>
+    
+            <div class="submit-area">
+                <p id="timer"></p>
+                <button onclick=" " class="sort-champion">gerar campeão</button>
+            </div>
+        </section>
     </main>
 
     <script type="module">
-        import { configs } from './index.js'
+        import { configs, mainMenu } from './index.js'
+
+        mainMenu.hide()
 
         const button = document.querySelector('.sort-champion');
 

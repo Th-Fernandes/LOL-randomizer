@@ -28,7 +28,7 @@
   width: min(60rem, 95%);
   max-width: 144rem;
   height: 40rem;
-  padding: 3rem;
+  padding: 2rem 3rem;
   border-radius: 16px;
   margin: auto;
   background-color: #212121;
@@ -68,18 +68,35 @@
   flex-wrap: wrap;
   height: 100%;
 }
+:root body section.champion-interface .close-window {
+  height: 2rem;
+}
+:root body section.champion-interface .close-window > img {
+  cursor: pointer;
+  transition: 1s all;
+  border-radius: 8px;
+}
+:root body section.champion-interface .close-window > img:hover {
+  transform: scale(1.5);
+  background: #ec7474;
+}
 :root body section.champion-interface .champions-data {
   width: 100%;
+  height: 50%;
+  margin-top: -2rem;
 }
 :root body section.champion-interface .champions-data > h1 {
   font-size: 3.2rem;
   margin-bottom: 1.5rem;
 }
-:root body section.champion-interface .champions-data > img {
+:root body section.champion-interface .champions-data .lol-design {
   width: 15rem;
   height: 15rem;
   border: 12.5px solid #6200ee;
   border-radius: 8px;
+}
+:root body section.champion-interface .champions-data .valorant-design {
+  height: 100%;
 }
 :root body section.champion-interface .submit-area {
   align-self: flex-end;
@@ -119,6 +136,9 @@
     padding: 0;
     justify-content: center;
     align-items: center;
+  }
+  body main.main section.main-menu {
+    transition: 1.5s all;
   }
   body main.main section.main-menu .modal > h1 {
     font-size: 2.2rem;

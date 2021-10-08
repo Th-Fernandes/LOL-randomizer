@@ -132,4 +132,4 @@ const championsList = [
     }),
 ]
 
-export { championsList }
+export { championsList, champion}

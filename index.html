@@ -21,14 +21,18 @@
 
             <div class="options">
                 <button  class="choose-lol"> sortear campeão </button>
-                <button> sortear agente </button>
+                <button class="choose-valorant"> sortear agente </button>
             </div>
             </div>
         </section>
         <!-- SESSAO GERAR CAMPEAO-->
         <section class="champion-interface">
+            <div class="close-window">
+                <img id="accesMenu" src="./images/close-window.svg" alt="close window">
+            </div>
+
             <div class="champions-data">
-           
+                
             </div>
     
             <div class="submit-area">
@@ -39,9 +43,15 @@
     </main>
 
     <script type="module">
+        import {mainMenu} from './index.js';
+       //funcionalidade de fechar o menu principal
+        mainMenu.toggle()
+    </script>
+        
+    <script type="module">
         import { configs, mainMenu } from './index.js'
-
-        mainMenu.hide()
+        // seleciona de qual jogo será o sorteio: lol ou valorant
+        const gameChoosed = configs.type()
 
         const button = document.querySelector('.sort-champion');
 
@@ -60,8 +70,7 @@
 
             }, 120 * 1000)
         })
-
-        button.addEventListener('mouseover', () => {console.log('foi')})
+        //button.addEventListener('mouseover', () => {console.log('foi')})
     </script>
 </body>
 </html>

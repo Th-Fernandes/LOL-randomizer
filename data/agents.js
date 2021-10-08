@@ -1,6 +1,6 @@
 import { champion } from './champions.js'
 
-const agentsLits = [
+const agentsList = [
     new champion({
         name: 'Astra',
         image: 'https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5599d0d810824279/6036ca30ce4a0d12c3ec1dfa/V_AGENTS_587x900_Astra.png',
@@ -82,4 +82,6 @@ const agentsLits = [
     }),
 ]
 
-console.log(agentsLits[0])
+//console.log(agentsLits[0])
+
+export {agentsList}

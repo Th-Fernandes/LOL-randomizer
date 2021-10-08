@@ -1,12 +1,28 @@
 import { championsList} from "./data/champions.js";
+import { agentsList } from './data/agents.js';
+
 
 const configs = {
+    typeSelected: undefined,
+    //seleciona qul jogo será usado para fazer os sorteios
+    type() {
+        //seleciona lol
+        const selectLol = document.querySelector('.choose-lol').addEventListener('click', () => {
+            //puxa os dados do game
+            configs.typeSelected = championsList
+            // seleciona o nome do jogo
+        })
+        //seleciona valorant
+        const selectValorant = document.querySelector('.choose-valorant').addEventListener('click', () => {
+            configs.typeSelected = agentsList
+        })
+    },
     //sorteia um campeao aleatorio
     sortChamp() {
-        const result = championsList[Math.round(Math.random() * championsList.length)]
+        const result = configs.typeSelected[Math.round(Math.random() * configs.typeSelected.length)]
 
-        while(result == championsList.length) {
-            result = championsList[Math.round(Math.random() * championsList.length)]
+        while(result == configs.typeSelected.length) {
+            result = configs.typeSelected[Math.round(Math.random() * configs.typeSelected.length)]
         }
 
         return result
@@ -14,11 +30,23 @@ const configs = {
 
     printResults() {
         const champion = configs.sortChamp()
+        const onScreen =  document.querySelector('.champions-data');
 
-        document.querySelector('.champions-data').innerHTML = `
-        <h1 class="champion-name">${champion.name}</h1>
-        <img src="${champion.image}" alt="champion image" class="champion-image">
-        `
+        if( configs.typeSelected == championsList) {
+            onScreen.innerHTML = `
+            <h1 class="champion-name ">${champion.name}</h1>
+            <img src="${champion.image}" alt="champion image" class="champion-image lol-design">
+            `
+       } else {
+           // esse local deve ficar o HTML novo onde aparece a nova interface
+           //feita para o valorant
+           onScreen.innerHTML = `
+           <img src="${champion.image}" alt="champion image" class="champion-image valorant-design">
+           <h1 class="champion-name">${champion.name}</h1>
+           `
+       }
+
+       
     },
 
     printWithAnimation() {
@@ -57,13 +85,25 @@ const configs = {
 }
 
 const mainMenu = {
-    hide() {
+    //seleciona o modal do menu principal no HTML
+    menu: document.querySelector('.main-menu'),
+    //esconde o menu principal
+    toggle() {
         document.querySelector('.choose-lol').addEventListener('click', () => {
-            document.querySelector('.main-menu').style.transition = "1.5s all"
-            document.querySelector('.main-menu').style.opacity = 0;
-            document.querySelector('.main-menu').style.visibility = "hidden"
+            mainMenu.menu.style.opacity = 0;
+            mainMenu.menu.style.visibility = "hidden"
         })
-    }
+
+        document.querySelector('.choose-valorant').addEventListener('click', () => {
+            mainMenu.menu.style.opacity = 0;
+            mainMenu.menu.style.visibility = "hidden"
+        }) 
+
+        document.querySelector('#accesMenu').addEventListener('click', () => {
+            mainMenu.menu.style.opacity = 1;
+            mainMenu.menu.style.visibility = "visible"
+        }) 
+    },
 }
 
 export { configs, mainMenu }

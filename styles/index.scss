@@ -38,7 +38,7 @@ body {
         width: min(60rem, 95%);
         max-width: 144rem;
         height: 40rem;
-        padding: 3rem;
+        padding: 2rem 3rem;
         border-radius: 16px;
         margin: auto;
         background-color: $dark-grey;
@@ -88,25 +88,47 @@ body {
             flex-wrap: wrap;
             height: 100%;
 
+            .close-window {
+                height: 2rem;
+
+                > img {
+                    cursor: pointer;
+                    transition: 1s all;
+                    border-radius: 8px;
+
+                    &:hover {
+                        transform: scale(1.5);
+                        background: rgb(236, 116, 116);
+                    }
+                }
+            }
+
             .champions-data {
                 width: 100%;
+                height: 50%;
+                margin-top: -2rem;
     
                 > h1 {
                     font-size: 3.2rem;
                     margin-bottom: 1.5rem;
                 }
     
-                > img {
+                .lol-design {
                     width: 15rem;
                     height: 15rem;
                     border: 12.5px solid $violet;
                     border-radius: 8px;
+                }
+
+                .valorant-design {
+                    height: 100%;
                 }
             }
 
            .submit-area {
             align-self: flex-end;
             width: 100%;
+            //height: 8.64rem;
     
                 #timer {
                     font-size: 3.2rem;
@@ -154,7 +176,7 @@ body {
             align-items: center;
 
             section.main-menu {
-
+                transition: 1.5s all;
     
                 .modal {
 
